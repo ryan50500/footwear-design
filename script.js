@@ -9,6 +9,10 @@ let current_slide = 0;
 
 
 left.addEventListener("click", () => {
+
+        // when user clicks on arrows, stop autoplay 
+        clearInterval(stopInterval);
+    
          // subtract 1 from current_slide on each left click
          current_slide--;
          // if current_slide is less than 0, set current_slide to 3
@@ -20,6 +24,10 @@ left.addEventListener("click", () => {
 });
 
 right.addEventListener("click", () => {
+
+       // when user clicks on arrows, stop autoplay 
+       clearInterval(stopInterval);
+       
       // add 1 to current_slide on each right click
       current_slide++;
       // if current_slide is bigger than total slides (4), reset count to 0
@@ -29,6 +37,7 @@ right.addEventListener("click", () => {
       // updating the correct image on each click
       updateCarousel();
 });
+
 
 function  updateCarousel() {
     carousel.style.transform = `translateX(${
@@ -54,3 +63,15 @@ function  updateCarousel() {
         document.getElementById('right').style.color = "white";
       }
 }
+
+// autoplay carousel
+var stopInterval = setInterval(function(){ 
+        // add 1 to current_slide on each right click
+        current_slide++;
+        // if current_slide is bigger than total slides (4), reset count to 0
+        if(current_slide > SLIDES_COUNT - 1) {
+            current_slide = 0;
+        }
+        // updating the correct image on each click
+        updateCarousel();
+ }, 3000);
