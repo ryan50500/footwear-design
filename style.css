@@ -12,11 +12,17 @@ body {
     background-color: #cb021c;
     font-family: "Roboto-regular", sans-serif;
     margin: 0;
+    transition: background 0.7s ease;
 }
 
 a {
     color: #ffffff;
     text-decoration: none;
+}
+
+button:focus {
+    outline: none;
+    opacity: 0.7;
 }
 
 .hamburger {
@@ -50,7 +56,6 @@ a {
 }
 
 .logo p {
-   color: #40020e;
     font-weight: bold;
     margin: 7px 0 0 0;
 }
@@ -58,7 +63,7 @@ a {
 .carousel-container {
     overflow: hidden;
     position: relative;
-    height: 80vh;
+    height: 60vh;
     width:100vw;
     margin-top: 5em;
 }
@@ -68,6 +73,7 @@ a {
     left: 0;
     top: 0;
     transform: translateX(0);
+    transition: transform 0.7s ease;
     display: flex;
 }
 
@@ -80,4 +86,63 @@ a {
     object-fit: cover;
     height: 280px;
     width: 280px;
+}
+
+.slide h1 {
+    font-size: 4rem;
+    color: white;
+    margin-top: 1rem;
+}
+
+.slide a {
+  background-color: #40020e;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+}
+
+.arrow {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    font-size: 5rem;
+    color: white;
+    opacity: 0.5;
+}
+
+.left-arrow {
+    left: 30rem;
+}
+
+.right-arrow {
+    right: 30rem;
+}
+
+.slide:nth-child(1) h1 {
+    color: white;
+}
+
+.slide:nth-child(2) h1 {
+    color: black;
+}
+
+.slide:nth-child(3) h1 {
+    color: black;
+}
+
+.slide:nth-child(4) h1 {
+    color: white;
+}
+
+
+/* mobile */
+@media (max-width:767px) {
+    .left-arrow {
+        left: 0.5rem;
+    }
+    .right-arrow {
+        right: 0.5rem;
+    }
 }
